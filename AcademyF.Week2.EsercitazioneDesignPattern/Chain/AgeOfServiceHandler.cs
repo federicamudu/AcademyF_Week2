@@ -19,12 +19,6 @@ namespace AcademyF.Week2.EsercitazioneDesignPattern.Chain
             {
                 return base.HandleRequest(employee);
             }
-
-        }
-
-        public IHandler SetNext(IHandler absenceHandler)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -121,7 +121,7 @@ namespace AcademyF.Week2.EsercitazioneDesignPattern.Test
         {
             //Come utente mi aspetto che l'impiegato che ha i requisiti per vincere contemporaneamente
             //i bonus di presenza e produttività vinca solamente il primo che incontra (ovvero
-            //quello di produttività)
+            //quello di presenza)
 
             //ARRANGE
             //Creo il dipendente con le caratteristiche che mi aspetto dal test
@@ -133,15 +133,15 @@ namespace AcademyF.Week2.EsercitazioneDesignPattern.Test
             };
 
             //Creo i gestori della richiesta sfruttando i parametri Y, W e Z
-            int Y = 26;
+            int Y = 26; //employee.Age < Y && employee.ProductivityRate > W
             int W = 70;
-            int Z = 40;
+            int Z = 40; //employee.Age < Y && employee.AbsenceRate < Z
 
             //Genero la catena di responsabilità
             IHandler absenceHandler = new AbsenceHandler(Y, Z);
-            IHandler productiviryHandler = new ProductivityHandler(Y, W);
+            IHandler productivityHandler = new ProductivityHandler(Y, W);
 
-            absenceHandler.SetNext(productiviryHandler);
+            absenceHandler.SetNext(productivityHandler);
 
             //ACT 
 
@@ -150,7 +150,7 @@ namespace AcademyF.Week2.EsercitazioneDesignPattern.Test
 
             //ASSERT
 
-            //Verifico che il premio sia uguale a 300
+            //Verifico che il premio sia uguale a 180
             Assert.Equal(180, premio);
         }
 

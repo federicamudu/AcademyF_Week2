@@ -10,9 +10,9 @@ namespace AcademyF.Week2.EsercitazioneDesignPattern.Decorator
     public class EmployeeDecorator : Employee
     {
         public Employee StartedEmployee { get; set; }
-        public EmployeeDecorator( Employee emp)
+        public EmployeeDecorator(Employee employee)
         {
-            StartedEmployee = emp;
+            StartedEmployee = employee;
         }
         public override string ViewBenefit()
         {

@@ -92,6 +92,29 @@ namespace AcademyF.Week2.EsercitazioneDesignPattern.Test
             Assert.True(!string.IsNullOrEmpty(benefit));
             Assert.Contains("P0987", benefit);
         }
-
+        [Fact]
+        public void ShouldHaveTicketRestaurant()
+        {
+            Employee employee = new Employee()
+            {
+                FirstName = "Mario",
+                LastName = "Rossi"
+            };
+            employee = new EmployeeTicketRestaurant(employee, "Ticket01", 20);
+            string benefit = employee.ViewBenefit();
+            Assert.True(!string.IsNullOrEmpty(benefit));
+        }
+        [Fact]
+        public void ShouldHaveCompanyCar()
+        {
+            Employee employee = new Employee()
+            {
+                FirstName = "Mario",
+                LastName = "Rossi"
+            };
+            employee = new EmployeeCompanyCar(employee, "AA000AA", "SubaruBaracca");
+            string benefit = employee.ViewBenefit();
+            Assert.True(!string.IsNullOrEmpty(benefit));
+        }
     }
 }
